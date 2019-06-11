@@ -2,8 +2,7 @@ package com.inficare.agentapp.repository
 
 import com.inficare.agentapp.BEARER
 import com.inficare.agentapp.datasource.networksource.AuthNetworkService
-import com.inficare.agentapp.repository.datasets.ResponseState
-import com.inficare.agentapp.repository.datasets.State
+import com.inficare.agentapp.repository.datasets.ResultState
 import de.adorsys.android.securestoragelibrary.SecurePreferences
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -14,7 +13,7 @@ class AuthenticationRepository @Inject constructor(private var authNetworkServic
 
     private val compositeDisposable = CompositeDisposable()
 
-    fun loginUser(username: String, password: String, onLoginResponse: (ResponseState<String>) -> Unit) {
+    fun loginUser(username: String, password: String, onLoginResponse: (ResultState, message: String) -> Unit) {
 
         val disposable = authNetworkService.requestLogin(username, password)
             .subscribeOn(Schedulers.io())
@@ -22,14 +21,11 @@ class AuthenticationRepository @Inject constructor(private var authNetworkServic
             .subscribe(
                 {
 
-
-                    if (it.access_token != null && it.access_token!!.isNotBlank()) {
-                        SecurePreferences.setValue(BEARER, it.access_token!!)
-                    }
-                    onLoginResponse(ResponseState(State.SUCCESS, ""))
+                    SecurePreferences.setValue(BEARER, it.access_token!!)
+                    onLoginResponse(ResultState.SUCCESS, "")
 
                 }, {
-                    onLoginResponse(ResponseState(State.FAILED, it.message!!))
+                    onLoginResponse(ResultState.FAILED, it.message!!)
                 }
             )
 
@@ -39,6 +35,7 @@ class AuthenticationRepository @Inject constructor(private var authNetworkServic
     fun clearDisposables() {
         compositeDisposable.clear()
     }
+
 
 
 }

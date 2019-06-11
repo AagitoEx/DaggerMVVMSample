@@ -5,7 +5,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.inficare.agentapp.datasource.roomdatabase.localmodels.CatalogueRM
+import com.inficare.agentapp.datasource.roomdatabase.entities.CatalogueRM
 
 @Dao
 interface CatalogueDao {

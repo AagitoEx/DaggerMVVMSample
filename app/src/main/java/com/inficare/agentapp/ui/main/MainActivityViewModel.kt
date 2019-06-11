@@ -2,13 +2,12 @@ package com.inficare.agentapp.ui.main
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
-import com.inficare.agentapp.datasource.roomdatabase.localmodels.CatalogueRM
+import com.inficare.agentapp.datasource.roomdatabase.entities.CatalogueRM
 import com.inficare.agentapp.repository.AuthenticationRepository
 import com.inficare.agentapp.repository.CatalogueRepository
 import com.inficare.agentapp.repository.CustomerRepository
 import com.inficare.agentapp.repository.datasets.COUNTRY_LIST
-import com.inficare.agentapp.repository.datasets.ResponseState
+import com.inficare.agentapp.repository.datasets.ResultState
 import com.inficare.agentapp.ui.core.AppViewModel
 
 class MainActivityViewModel(
@@ -18,12 +17,13 @@ class MainActivityViewModel(
 ) : AppViewModel() {
 
 
-    val loginStateLiveData: MutableLiveData<ResponseState<String>> = MutableLiveData()
+    val errorMessageLiveData: MutableLiveData<String> = MutableLiveData()
     var catalogListLiveData: LiveData<List<CatalogueRM>> = catalogueRepository.catalogLiveData
 
     fun requestLogin(username: String, password: String) {
-        authenticationRepository.loginUser(username, password) {
-            loginStateLiveData.value = it
+        authenticationRepository.loginUser(username, password) { state, message ->
+            if (state == ResultState.FAILED)
+                errorMessageLiveData.value = message
         }
     }
 

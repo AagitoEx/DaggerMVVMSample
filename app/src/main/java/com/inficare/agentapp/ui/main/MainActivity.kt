@@ -8,7 +8,8 @@ import androidx.lifecycle.Observer
 import com.inficare.agentapp.BEARER
 import com.inficare.agentapp.R
 import com.inficare.agentapp.getText
-import com.inficare.agentapp.repository.datasets.State
+import com.inficare.agentapp.hello
+import com.inficare.agentapp.repository.datasets.ResultState
 import dagger.android.AndroidInjection
 import de.adorsys.android.securestoragelibrary.SecurePreferences
 import kotlinx.android.synthetic.main.activity_main.*
@@ -36,17 +37,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initViewStates() {
-        viewModel.loginStateLiveData.observe(this, Observer {
-            assert(it != null)
-
-            when (it.state) {
-                State.SUCCESS -> {
-                    Log.e("test", "Test:" + SecurePreferences.getStringValue(BEARER, ""))
-                }
-                State.FAILED -> {
-                    Toast.makeText(this@MainActivity, "Something went wrong", Toast.LENGTH_SHORT).show()
-                }
-            }
+        viewModel.errorMessageLiveData.observe(this, Observer {
 
         })
 

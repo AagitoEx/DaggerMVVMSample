@@ -84,4 +84,6 @@ class DataModule {
     fun provideApiNetworkWebservice(restAdapter: Retrofit): NetworkService {
         return restAdapter.create<NetworkService>(NetworkService::class.java)
     }
+
+
 }

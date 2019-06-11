@@ -1,4 +1,4 @@
-package com.inficare.agentapp.datasource.networksource.responsemodels
+package com.inficare.agentapp.datasource.networksource.datatransferobjects
 
 
 import com.google.gson.annotations.SerializedName

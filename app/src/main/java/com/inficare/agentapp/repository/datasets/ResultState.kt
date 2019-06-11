@@ -1,6 +1,6 @@
 package com.inficare.agentapp.repository.datasets
 
-enum class State {
+enum class ResultState {
     SUCCESS,
     FAILED,
     TIMEOUT

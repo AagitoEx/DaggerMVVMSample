@@ -1,4 +1,4 @@
-package com.inficare.agentapp.datasource.roomdatabase.localmodels
+package com.inficare.agentapp.datasource.roomdatabase.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

@@ -2,7 +2,7 @@ package com.inficare.agentapp.repository
 
 import com.inficare.agentapp.datasource.networksource.NetworkService
 import com.inficare.agentapp.datasource.roomdatabase.dao.CatalogueDao
-import com.inficare.agentapp.datasource.roomdatabase.localmodels.CatalogueRM
+import com.inficare.agentapp.datasource.roomdatabase.entities.CatalogueRM
 import com.inficare.agentapp.repository.datasets.COUNTRY_LIST
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable

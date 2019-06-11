@@ -3,7 +3,7 @@ package com.inficare.agentapp.datasource
 import android.content.Context
 import android.content.SharedPreferences
 
-class SharedPreferenceUtils constructor(val mContext: Context) {
+class SharedPreferenceUtils constructor(mContext: Context) {
 
     private val mSharedPreferences: SharedPreferences =
         mContext.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
@@ -70,7 +70,7 @@ class SharedPreferenceUtils constructor(val mContext: Context) {
      * @param defaultValue default value if no key found
      */
     fun getStringValue(key: String, defaultValue: String): String {
-        return mSharedPreferences.getString(key, defaultValue)
+        return mSharedPreferences.getString(key, defaultValue)?:""
     }
 
     /**

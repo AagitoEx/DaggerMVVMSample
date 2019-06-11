@@ -31,7 +31,6 @@ class AgentApplication : Application(), HasSupportFragmentInjector, HasActivityI
             .context(this)
             .build()
 
-
         component.inject(this)
     }
 

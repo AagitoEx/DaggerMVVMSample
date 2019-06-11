@@ -1,6 +1,6 @@
 package com.inficare.agentapp.datasource.networksource
 
-import com.inficare.agentapp.datasource.networksource.responsemodels.*
+import com.inficare.agentapp.datasource.networksource.datatransferobjects.*
 import io.reactivex.Observable
 import retrofit2.http.*
 
