@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          xmlns:tools="http://schemas.android.com/tools" package="com.inficare.agentapp">
+          xmlns:tools="http://schemas.android.com/tools" package="com.example.mvvmapp">
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
-            android:name=".AgentApplication"
+            android:name="com.example.mvvmapp.AgentApplication"
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
@@ -14,7 +14,7 @@
             android:theme="@style/AppTheme"
             android:usesCleartextTraffic="true"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.main.MainActivity">
+        <activity android:name="com.example.mvvmapp.ui.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

@@ -13,5 +13,5 @@ Java_com_inficare_agentapp_Keys_getAPIKEY(JNIEnv *env, jobject instance) {
 JNIEXPORT jstring JNICALL
 Java_com_inficare_agentapp_Keys_getAPISECRET(JNIEnv *env, jobject instance) {
 
- return (*env)->NewStringUTF(env, "tcimobileapp");
+ return (*env)->NewStringUTF(env, "testapp");
 }
